@@ -1,0 +1,11 @@
+[development]
+galera-01 ansible_ssh_host=192.168.1.101 private_ip=192.168.1.101
+galera-02 ansible_ssh_host=192.168.1.102 private_ip=192.168.1.102
+
+[development:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant
+
+[openstack-db]
+galera-01
+galera-02

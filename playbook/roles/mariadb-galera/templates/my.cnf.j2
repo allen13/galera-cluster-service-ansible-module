@@ -1,0 +1,25 @@
+[mysqld]
+bind-address = {{ galera_bind_address }}
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+log-error=/var/log/mysql.log
+symbolic-links=0
+binlog_format=ROW
+default-storage-engine=innodb
+innodb_autoinc_lock_mode=2
+innodb_locks_unsafe_for_binlog=1
+innodb_log_file_size=100M
+innodb_file_per_table
+innodb_flush_log_at_trx_commit=2
+query_cache_size=0
+query_cache_type=0
+collation-server = utf8_general_ci
+init-connect = 'SET NAMES utf8'
+character-set-server = utf8
+
+[mysqld_safe]
+log-error=/var/log/mysql.log
+pid-file=/var/run/mysql/mysql.pid
+
+# include all files from the config directory
+!includedir /etc/my.cnf.d

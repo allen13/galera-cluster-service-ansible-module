@@ -1,0 +1,6 @@
+- hosts: openstack-db
+  gather_facts: true
+  sudo: true
+  roles:
+    # - common
+    - mariadb-galera

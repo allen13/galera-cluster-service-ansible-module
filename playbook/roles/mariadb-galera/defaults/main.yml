@@ -1,0 +1,6 @@
+galera_root_password: LrYNAjln52b9
+galera_cluster_user: galera
+galera_cluster_password: LrYNAjln52b9
+galera_cluster_name: galera
+galera_cluster_members: [127.0.0.1]
+galera_bind_address: 0.0.0.0

@@ -1,0 +1,24 @@
+- name: install mariadb repo
+  copy:
+    src: mariadb.repo
+    dest: /etc/yum.repos.d/mariadb.repo
+    mode: 0644
+
+- name: install mariadb and galera
+  yum: name={{item}} state=latest
+  with_items:
+    - MySQL-python
+    - socat
+    - rsync
+    - MariaDB-client
+    - MariaDB-Galera-server
+    - galera
+
+- name: start mysql service
+  service: name=mysql state=started enabled=yes
+
+- name: start and join to galera cluster
+  galera_cluster_service: state=started
+  register: galera
+
+- debug: msg="{{ galera }}"
